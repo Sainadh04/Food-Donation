@@ -11,15 +11,13 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
-
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
---
--- Database: `demo`
---
+-- Select the database
+USE `demo`;
 
 -- --------------------------------------------------------
 
@@ -36,9 +34,7 @@ CREATE TABLE `admin` (
   `address` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `admin`
---
 
 -- --------------------------------------------------------
 
@@ -54,10 +50,7 @@ CREATE TABLE `delivery_persons` (
   `city` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `delivery_persons`
---
-
 
 -- --------------------------------------------------------
 
@@ -81,9 +74,7 @@ CREATE TABLE `food_donations` (
   `delivery_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `food_donations`
---
 
 -- --------------------------------------------------------
 
@@ -99,10 +90,7 @@ CREATE TABLE `login` (
   `gender` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `login`
---
-
 
 -- --------------------------------------------------------
 
@@ -117,83 +105,48 @@ CREATE TABLE `user_feedback` (
   `message` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
 -- Dumping data for table `user_feedback`
---
 
 INSERT INTO `user_feedback` (`feedback_id`, `name`, `email`, `message`) VALUES
 (1, 'John Smith', 'john@example.com', 'I really enjoyed using your product!');
 
---
 -- Indexes for dumped tables
---
 
---
--- Indexes for table `admin`
---
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`Aid`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- Indexes for table `delivery_persons`
---
 ALTER TABLE `delivery_persons`
   ADD PRIMARY KEY (`Did`),
   ADD UNIQUE KEY `email` (`email`);
 
---
--- Indexes for table `food_donations`
---
 ALTER TABLE `food_donations`
   ADD PRIMARY KEY (`Fid`);
 
---
--- Indexes for table `login`
---
 ALTER TABLE `login`
   ADD PRIMARY KEY (`email`),
   ADD UNIQUE KEY `id` (`id`);
 
---
--- Indexes for table `user_feedback`
---
 ALTER TABLE `user_feedback`
   ADD PRIMARY KEY (`feedback_id`);
 
---
 -- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `admin`
---
 ALTER TABLE `admin`
   MODIFY `Aid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
---
--- AUTO_INCREMENT for table `delivery_persons`
---
 ALTER TABLE `delivery_persons`
   MODIFY `Did` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
---
--- AUTO_INCREMENT for table `food_donations`
---
 ALTER TABLE `food_donations`
   MODIFY `Fid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
---
--- AUTO_INCREMENT for table `login`
---
 ALTER TABLE `login`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
---
--- AUTO_INCREMENT for table `user_feedback`
---
 ALTER TABLE `user_feedback`
   MODIFY `feedback_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
